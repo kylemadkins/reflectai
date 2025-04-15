@@ -26,7 +26,7 @@ export default async function Page() {
   const entries = await getEntries();
 
   return (
-    <div className="p-10 bg-zinc-500/10 h-full">
+    <div className="p-10 bg-zinc-500/10 min-h-full">
       <div className="mb-8 flex items-center justify-between">
         <h2 className="text-3xl">Journal</h2>
         <NewEntryButton />

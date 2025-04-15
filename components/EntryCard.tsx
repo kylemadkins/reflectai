@@ -7,7 +7,7 @@ export default function EntryCard({
   summary: string;
   mood: string;
 }) {
-  const date = createdAt.toDateString();
+  const date = createdAt.toLocaleString();
 
   return (
     <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">

@@ -1,8 +1,7 @@
 "use client";
 
+import { createEntry } from "@/utils/actions";
 import { useRouter } from "next/navigation";
-
-import { createEntry } from "@/utils/api";
 
 export default function NewEntryCard() {
   const router = useRouter();

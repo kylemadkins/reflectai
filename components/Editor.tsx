@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { updateEntry } from "@/utils/api";
+import { updateEntry } from "@/utils/actions";
 import { useDebounce } from "@/hooks/useDebounce";
 import Spinner from "./Spinner";
 

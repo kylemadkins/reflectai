@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import Editor from "@/components/Editor";
 import { getUserByClerkId } from "@/utils/auth";
@@ -25,7 +25,7 @@ export default async function Page({
   const entry = await getEntry(id);
 
   if (!entry) {
-    redirect("/journal");
+    notFound();
   }
 
   return (
