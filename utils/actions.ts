@@ -3,6 +3,7 @@
 import { prisma } from "./db";
 import { getUserByClerkId } from "./auth";
 import { revalidatePath } from "next/cache";
+import { analyze } from "./ai";
 
 export async function createEntry() {
   const user = await getUserByClerkId();
@@ -14,6 +15,14 @@ export async function createEntry() {
     },
   });
 
+  const analysis = await analyze(entry.content);
+
+  if (analysis) {
+    await prisma.analysis.create({
+      data: { entryId: entry.id, ...analysis },
+    });
+  }
+
   revalidatePath("/journal");
 
   return entry;
@@ -22,13 +31,33 @@ export async function createEntry() {
 export async function updateEntry(id: string, content: string) {
   const user = await getUserByClerkId();
 
-  const entry = await prisma.entry.update({
+  await prisma.entry.update({
     where: {
       id: id,
       userId: user.id,
     },
     data: {
       content,
+    },
+  });
+
+  const analysis = await analyze(content);
+
+  if (analysis) {
+    await prisma.analysis.update({
+      where: {
+        entryId: id,
+      },
+      data: { entryId: id, ...analysis },
+    });
+  }
+
+  const entry = await prisma.entry.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      analysis: true,
     },
   });
 

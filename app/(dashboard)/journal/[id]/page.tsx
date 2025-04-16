@@ -11,6 +11,9 @@ const getEntry = async (id: string) => {
       id,
       userId: user.id,
     },
+    include: {
+      analysis: true,
+    },
   });
   return entry;
 };
@@ -28,9 +31,5 @@ export default async function Page({
     notFound();
   }
 
-  return (
-    <div className="w-full h-full">
-      <Editor id={entry.id} content={entry.content} />
-    </div>
-  );
+  return <Editor entry={entry} />;
 }

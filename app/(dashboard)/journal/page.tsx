@@ -1,8 +1,9 @@
+import Link from "next/link";
+
 import EntryCard from "@/components/EntryCard";
 import NewEntryButton from "@/components/NewEntryButton";
 import { getUserByClerkId } from "@/utils/auth";
 import { prisma } from "@/utils/db";
-import Link from "next/link";
 
 const getEntries = async () => {
   const user = await getUserByClerkId();
