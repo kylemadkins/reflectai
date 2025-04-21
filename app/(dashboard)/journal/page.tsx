@@ -4,6 +4,7 @@ import EntryCard from "@/components/EntryCard";
 import NewEntryButton from "@/components/NewEntryButton";
 import { getUserByClerkId } from "@/utils/auth";
 import { prisma } from "@/utils/db";
+import Question from "@/components/Question";
 
 const getEntries = async () => {
   const user = await getUserByClerkId();
@@ -31,6 +32,9 @@ export default async function Page() {
       <div className="mb-8 flex items-center justify-between">
         <h2 className="text-3xl">Journal</h2>
         <NewEntryButton />
+      </div>
+      <div className="my-16">
+        <Question />
       </div>
       <div className="grid grid-cols-3 gap-4 ">
         {entries.map((entry) => (

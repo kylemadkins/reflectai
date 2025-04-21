@@ -3,7 +3,7 @@
 import { prisma } from "./db";
 import { getUserByClerkId } from "./auth";
 import { revalidatePath } from "next/cache";
-import { analyze } from "./ai";
+import { analyze, qa } from "./ai";
 
 export async function createEntry() {
   const user = await getUserByClerkId();
@@ -62,4 +62,17 @@ export async function updateEntry(id: string, content: string) {
   });
 
   return entry;
+}
+
+export async function askQuestion(question: string) {
+  const user = await getUserByClerkId();
+
+  const entries = await prisma.entry.findMany({
+    where: { userId: user.id },
+    select: { id: true, content: true, createdAt: true },
+  });
+
+  const answer = await qa(question, entries);
+
+  return answer;
 }
