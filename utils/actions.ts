@@ -19,7 +19,7 @@ export async function createEntry() {
 
   if (analysis) {
     await prisma.analysis.create({
-      data: { entryId: entry.id, ...analysis },
+      data: { userId: user.id, entryId: entry.id, ...analysis },
     });
   }
 
@@ -48,7 +48,7 @@ export async function updateEntry(id: string, content: string) {
       where: {
         entryId: id,
       },
-      data: { entryId: id, ...analysis },
+      data: { ...analysis },
     });
   }
 

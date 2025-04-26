@@ -48,9 +48,9 @@ export default function Editor({
   ];
 
   return (
-    <div className="w-full h-full grid grid-cols-3">
+    <div className="h-full grid grid-cols-3">
       <div className="col-span-2">
-        <div className="p-10 h-full w-full relative">
+        <div className="p-10 h-full relative">
           <textarea
             className="h-full w-full focus:outline-none"
             value={value}

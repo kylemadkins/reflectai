@@ -9,7 +9,7 @@ export default async function Page({
   redirectUrl = redirectUrl || "/journal"; // Fallback
 
   return (
-    <main className="w-screen h-screen bg-black flex justify-center items-center">
+    <main className="h-full bg-black flex justify-center items-center">
       <SignIn
         forceRedirectUrl={`/api/auth/callback?redirectUrl=${encodeURIComponent(
           redirectUrl

@@ -36,7 +36,7 @@ export default async function Page() {
       <div className="my-16">
         <Question />
       </div>
-      <div className="grid grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-3 gap-4">
         {entries.map((entry) => (
           <Link key={entry.id} href={`/journal/${entry.id}`}>
             <EntryCard

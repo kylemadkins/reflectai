@@ -33,6 +33,13 @@ const parser = StructuredOutputParser.fromZodSchema(
       .describe(
         "true or false depending on whether the journal entry reflects a predominantly negative experience"
       ),
+    sentimentScore: z
+      .number()
+      .min(-10)
+      .max(10)
+      .describe(
+        "sentiment of the text and rated on a scale from -10 to 10, where -10 is extremely negative, 0 is neutral, and 10 is extremely positive."
+      ),
   })
 );
 

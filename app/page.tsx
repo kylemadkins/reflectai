@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="w-screen h-screen bg-black flex justify-center items-center text-white">
+    <main className="h-full bg-black flex justify-center items-center text-white">
       <div className="max-w-[70ch]">
         <h1 className="text-6xl mb-6">ReflectAI. A journal that talks back.</h1>
         <p className="text-xl text-white/80 mb-12 leading-8 font-light">
