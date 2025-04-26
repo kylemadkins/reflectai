@@ -27,6 +27,13 @@ DATABASE_URL=<database URL>
 
 I used [Neon](https://neon.tech) for my database
 
+You'll need to push the [Prisma](https://www.prisma.io) schema to your database using the following command
+
+```
+npm install
+npx prisma db push
+```
+
 After you've done all that, you should be able to run the dev server
 
 ```bash
@@ -37,8 +44,14 @@ npm run dev
 
 If you don't want to run the project yourself, here are some screenshots
 
+### Journal
+
 ![Journal page](screenshots/journal.png)
 
-![Journal details page](screenshots/details.png)
+### Entry
+
+![Entry details page](screenshots/details.png)
+
+### History
 
 ![Sentiment history page](screenshots/history.png)
